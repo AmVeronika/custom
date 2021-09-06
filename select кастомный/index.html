@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Custom select</title>
+   <!-- Подключаем CSS файл CustomSelect -->
+   <link rel="stylesheet" href="../custom-select.css">
+   <!-- Подключаем JavaScript файл CustomSelect -->
+   <script defer src="../custom-select.js"></script>
+   <script>
+      document.addEventListener('DOMContentLoaded', () => {
+         // инициализируем #select-2 как CustomSelect -->
+         new CustomSelect('#select-2');
+      })
+   </script>
+</head>
+
+<body>
+
+   <div class="container">
+
+      <div style="display: flex;">
+         <div style="flex: 0 0 50%; padding: 15px;">
+
+            <!-- селект #select-1 -->
+            <div id="select-1"></div>
+
+         </div>
+         <div style="flex: 0 0 50%; padding: 15px;">
+            <!-- --------------------- -->
+            <!-- --------------------- -->
+            <!-- селект #select-2 -->
+            <div class="select" id="select-2">
+               <button type="button" class="select__toggle" name="numbers" value="popularity" data-select="toggle"
+                  data-index="5">Популярности
+               </button>
+               <div class="select__dropdown">
+                  <ul class="select__options">
+                     <li class="select__option" data-select="option" data-value="priceDown" data-index="0">Цене</li>
+
+                     <li class="select__option" data-select="option" data-value="priceUp" data-index="1">Цене</li>
+
+                     <li class="select__option" data-select="option" data-value="Alphabet" data-index="2">Алфавиту</li>
+
+                     <li class="select__option" data-select="option" data-value="Magasine" data-index="3">Магазину</li>
+
+                     <li class="select__option" data-select="option" data-value="Sale" data-index="4">Скидке</li>
+                     <li class="select__option select__option_selected" data-select="option" data-value="popularity"
+                        data-index="5">Популярности</li>
+                  </ul>
+               </div>
+            </div>
+            <!-- --------------------- -->
+            <!-- --------------------- -->
+            <!-- --------------------- -->
+
+         </div>
+      </div>
+
+   </div>
+</body>
+
+</html>
