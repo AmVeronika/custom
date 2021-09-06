@@ -1,0 +1,144 @@
+/*GREENS: #4ac4ac, #399988, #17694f, #0a1a17;*/
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+body,
+html {
+   margin: 0px auto;
+}
+/* DISCOUT */
+
+/* Убрать оригинальные стрелочки в input type ="number" */
+/* Это для браузера Chrome: */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+/* Это для браузера Firefox: */
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+   -moz-appearance: number-input;
+}
+/* Для других */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
+/* END*/
+
+.discount__value {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 21px;
+}
+.out {
+   width: 70px;
+   padding: 0 8px;
+   font-size: 18px;
+   line-height: 24px;
+   text-align: center;
+   color: #0d0d0d;
+   border: 1px solid #0d0d0d;
+   box-sizing: border-box;
+   border-radius: 5px;
+}
+.discount__quontity::placeholder {
+   font-size: 18px;
+   line-height: 24px;
+   text-align: center;
+   color: #0d0d0d;
+}
+.discount__hr {
+   width: 44px;
+   height: 1px;
+   background: #0d0d0d;
+}
+.slider {
+   pointer-events: none;
+   margin: 0px;
+   cursor: pointer;
+
+   padding-left: 500px;
+   padding-right: 30%;
+   width: 212px;
+   height: 1px;
+   background-color: #888888;
+   box-sizing: border-box;
+}
+
+.slider.focusable {
+   border: 1px solid #222;
+}
+
+.thumb {
+   cursor: pointer;
+   /*border-width:4px; width:16px; height:16px;*/
+   background-color: #0d0d0d;
+   border-radius: 50%;
+   position: absolute;
+   top: -4.6px;
+   /* left:0; */
+   width: 10px;
+   height: 10px;
+}
+
+.track {
+   pointer-events: none;
+   height: 100%;
+   background-color: #0d0d0d;
+}
+
+.container {
+   position: relative;
+   width: 212px;
+}
+.container2 {
+   width: 212px;
+}
+.container3 {
+   margin: 50px auto;
+   max-width: 240px;
+   padding: 30px 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background: rgb(214, 211, 211);
+   border: 1px solid black;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}
+
+.output {
+   /* pointer-events: none; */
+
+   /* -webkit-transform: rotate(45deg);
+   -moz-transform: rotate(45deg);
+   -ms-transform: rotate(45deg);
+   transform: rotate(45deg); */
+   /* position: absolute;
+   top: -45px; */
+   /* left:45px */
+}
+
+/* .output p {
+   pointer-events: none;
+   font-size: 14px;
+   color: #0a1a17;
+   text-align: center;
+   -webkit-transform: rotate(-45deg);
+   -moz-transform: rotate(-45deg);
+   -ms-transform: rotate(-45deg);
+   transform: rotate(-45deg);
+} */

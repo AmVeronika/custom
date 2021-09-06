@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+   <!-- <input type="password" id="input">
+   <p id="text">hello world</p>
+   <button type="button" onclick="sleep()" id="uh">Хочу спать</button>
+   -->
+
+   <!-- <p class="p-3">Хруст, хруст, хруст</p> -->
+
+   <!-- <input type="text" id="lang">
+   <button type="button" id="butLang">oi oi</button> -->
+   <!-- <form action="#" id="form">
+      <label> Введите ваше имя:
+         <input id="inp" type="text">
+      </label>
+      <br>
+      <label> Меньше 18 лет,ахахха:
+         <input class="year" id="young" type="radio" name="year" value="young">
+      </label>
+      <br>
+      <label> Больше 18, грусть:
+         <input class="year" id="old" type="radio" name="year" value="old">
+      </label>
+      <br>
+      <button id="but">Отправить</button>
+      <p id="p">Меня зовут: <span id="span"></span></p>
+   </form> -->
+
+
+   <!-- <input type="range" min="0" max="100"i id="inputRange">
+   <p id="outInput">50</p> -->
+
+   <!-- <div class="wrapp">
+
+      <label>
+         <input type="checkbox" name="" id="">
+         <span class="one"> </span>
+         <span class="two"> </span>
+         <span class="three"> </span>
+         <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+         </ul>
+      </label>
+   </div> -->
+
+   <!-- <button class="clickbut">ХЕРАКС</button> -->
+
+
+   <!-- Задача с лайками,,,,,,хренайками -->
+   <style>
+      .li {
+         width: 100%;
+         border: 1px solid blue;
+         border-radius: 5px;
+         padding: 5px;
+         margin: 10px;
+      }
+
+      .li-collor {
+         border: 1px solid red;
+      }
+
+      .svg-collor {
+         fill: red;
+      }
+   </style>
+   <div class="container" style="display: flex; flex-direction: column;">
+      <img src="dog.gif" width="500" alt="">
+      <div>
+         <svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 422.448 422.448" width="70" height="50"
+            style="margin: 20px 0 20px 210px;" fill="none" stroke="red">
+            <path stroke-width="30" d="M387.15,59.153c-47.066-47.065-123.374-47.065-170.44,0l-4,4l-4-4
+	C163.342,10.448,87.081,7.742,38.376,53.109s-51.412,121.628-6.044,170.334c1.885,2.023,3.839,3.981,5.858,5.871l170.8,170.8
+	c2.018,1.981,5.217,2.085,7.36,0.24l170.8-170.8c47.065-47.066,47.065-123.374,0-170.44L387.15,59.153z" />
+            <g>
+         </svg>
+         <p class="p"
+            style="margin: 0 0; line-height: 25px; font-size: 24px; font-weight: 700; color: red; display: inline-block;">
+            10000</p>
+      </div>
+   </div>
+
+
+
+   <form action="#" class="form" style="width: 500px; background: rgba(112, 112, 209, 0.144);">
+      <p style="text-align: center; padding: 30px;">Ваши мысли по поводу этого пса!</p>
+      <ol class="ol" style="padding: 0 50px 50px; list-style: none;">
+         <li class="li">Вот это пёс::::</li>
+         <li class="li">Вот это пёс::::</li>
+         <li class="li">Вот это пёс::::</li>
+      </ol>
+      <input type="text" class="input"
+         style="width: 500px; background: rgba(160, 207, 112, 0.986); padding: 10px; border: 1px solid red; display: block;"
+         placeholder="НУ КАКОВА?">
+      <button type="submit" class="button" style="background: crimson; padding: 10px 10px; margin: 10px 230px;">
+         Жмакай!</button>
+   </form>
+
+
+   <script>
+      //  Задача с лайками,,,,,,хренайками
+      let svg = document.querySelector('.svg');
+      let p = document.querySelector('.p');
+      let form = document.querySelector('.form');
+      let ol = document.querySelector('.ol');
+      let input = document.querySelector('.input');
+
+      svg.onclick = function () {
+         svg.classList.toggle('svg-collor');
+         if (svg.classList.contains('svg-collor')) {
+            p.innerHTML++;
+         } else {
+            p.innerHTML--;
+         }
+      }
+
+      form.onsubmit = function () {
+         if (input.value) {
+            let li = document.createElement('li');
+            li.classList.add('li');
+            li.innerHTML = input.value;
+            ol.append(li);
+            input.value = '';
+         }
+      }
+
+      // Задача от Адилхана. Ladies and Gentlemens:
+      // +111+111+111
+      // for (i = 0; i < 3; i++) {
+      //    document.write('+')
+      //    for (j = 0; j < 3; j++) {
+      //       document.write('1')
+      //    }
+      // }
+
+      // 111112222333445
+      // let i = 0;
+      // let j = 0;
+      // let g = 0;
+      // let e = 0;
+      // let f = 0;
+
+
+      // while (i < 1) {
+      //    while (j < 2) {
+      //       while (g < 3) {
+      //          while (e < 4) {
+      //             while (f < 5) {
+      //                document.write('с');
+      //                f++;
+      //             }
+      //             document.write('у');
+      //             e++;
+      //          }
+      //          document.write('к');
+      //          g++;
+      //       }
+      //       document.write('а');
+      //       j++;
+      //    }
+      //    document.write('!');
+      //    i++;
+
+      // }
+
+      // for (i = 0; i < 5; i++) {
+      //    document.write(1);
+      // }
+      // for (j = 0; j < 4; j++) {
+      //    document.write(2);
+      // }
+      // for (g = 0; g < 3; g++) {
+      //    document.write(3);
+      // }
+      // for (e = 0; e < 2; e++) {
+      //    document.write(4);
+      // }
+      //    document.write(5);
+
+// Задачка А.
+// Выведите с помощью цикла столбец четных чисел от 1 до 100. Показать решение.
+// for (i=2; i<=100; i +=2) {
+//    console.log(i);
+// }
+
+// Задачка Б.
+// Заполните массив числами от 1 до 10 с помощью цикла. Показать решение.
+// let arr=[];
+// for (i=1; i<=10; i++) {
+//    arr.push(i);
+//    console.log(arr);
+// }
+// let arr=[];
+// for (i=10; i>=1; i--) {
+//    arr.push(i);
+//    console.log(arr);
+// }
+
+// Задачка В.
+// Заполните массив 10-ю случайными числами от 0 до 10 с помощью цикла. Показать решение.
+// let arr =[];
+// for (i=1; i<=10; i++) {
+//    let ran = parseInt(Math.random()*11);
+//    arr.push(ran);
+//    console.log(arr);
+// }
+
+// Задачка Г.
+// Дан массив с числами. С помощью цикла выведите только те элементы массива, которые больше нуля и меньше 10-ти. Показать решение.
+// let arr =[];
+// for (i=1; i<=10; i++) {
+//    let ran = parseInt(Math.random()*30);
+//    arr.push(ran);
+// } console.log(arr);
+// for (i=0; i<=10; i++) {
+//    if (arr[i]>0 && arr[i]<10) {
+//       console.log("+: " + arr[i]);
+//    }
+// }
+
+
+// Задачка Д.
+// Выведите с помощью цикла столбец чисел от 100 до 1. Показать решение.
+// for (i=0; i<100; i++) {
+//    console.log(100 - i);
+// }
+
+      // document.querySelector('#inputRange').oninput = () => {
+      //    document.querySelector('#outInput').innerHTML = document.querySelector('#inputRange').value;
+      // }
+
+      // Выведите столбец чисел от 1 до 100.
+      // for (let i=1; i<=100; i++) {
+      //    console.log(i);
+      // }
+
+      // Выведите столбец чисел от 11 до 33.
+      // for (let i=11; i<=33; i++) {
+      //    console.log('i = ' + i);
+      // }
+
+      // Выведите столбец четных чисел в промежутке от 0 до 100.
+      // for (let i =0; i<=100; i +=2) {
+      //    console.log('i = ' + i);
+      // }
+
+      // С помощью цикла найдите сумму чисел от 1 до 100.
+      // let sum = 0;
+      // for (i=1; i<=100; i++) {
+      //    console.log(sum=sum+i);
+      // }
+      // console.log(sum);
+
+      // Дан массив с элементами [1, 2, 3, 4, 5]. С помощью цикла for выведите все эти элементы на экран.
+      // let arr = [1, 2, 3, 4, 5];
+      // for (i = 0; i < arr.length; i++) {
+      //    console.log(arr[i]);
+      // }
+
+      // Дан массив с элементами [1, 2, 3, 4, 5]. С помощью цикла for найдите сумму элементов этого массива. Запишите ее в переменную result.
+      // let sama = [1,2,3,4,5];
+      // let result = 0;
+      // for (i=0; i<sama.length; i++) {
+      //    result +=sama[i];
+      //    console.log(result);
+      // } 
+
+      // Дан массив с элементами [2, 3, 4, 5]. С помощью цикла for найдите произведение элементов этого массива.
+      // let kukuha = [2,3,4,5];
+      // let poehala = 1;
+      // for (i=0; i<kukuha.length; i++) {
+      //    poehala *= kukuha[i];
+      //    console.log(poehala);
+      // }
+
+      // Дан массив с элементами [1, 2, 3, 4, 5]. С помощью цикла for выведите все эти элементы на экран.
+      // let sanuda = [1, 2, 3, 4, 5,];
+      // sanuda.push('a');
+      // for (i = 0; i < sanuda.length; i++) {
+      //    // sanuda.push('a');
+      //    console.log(sanuda[i]);
+      // }
+
+
+      // Выведите столбец чисел от 1 до 50.
+
+      // Task 1
+      // Кнопка b-1 запускает функцию t1. Функция должна выводить в out-1 строку вида:1 2 3 4 5 6 7 8 9 ... 49 50 от 1 до 50 включительно. Разделитель - пробел. Задача решается с помощью цикла.
+      // document.querySelector('.clickbut').onclick = () => {
+      //    for (let i=0; i<=50; i++) {
+      //       console.log(i);
+      //    }
+      // }
+
+      // Task 2
+      // Кнопка b-2 запускает функцию t2. Функция должна выводить в out-2 строку вида:2 4 6 ... 122 от 2 до 122 c шагом 2. Разделитель - пробел. Задача решается с помощью цикла.
+      // document.querySelector('.clickbut').onclick = () => {
+      //    for (let i=2; i<=122; i +=2) {
+      //       console.log(i);
+      //    }
+      // }
+
+      // Task 3
+      // Кнопка b-3 запускает функцию t3. Функция должна выводить в out-3 строку вида:25 24 23 22 ... 7, от 25 до 7 c шагом 1. Разделитель - пробел. Задача решается с помощью цикла.
+//       document.querySelector('.clickbut').onclick = () => {
+//          for (let i = 0; i<19; i++) {
+//             console.log(25 - i);
+//          }
+//  }
+
+// Задача от Адилхана, хер знает что)
+      // let userName = document.querySelector('#inp');
+      // let but = document.querySelector('#but');
+      // let span = document.querySelector('#span');
+      // let p = document.querySelector('#p');
+      // let young = document.querySelector('#young');
+      // let old = document.querySelector('#old');
+      // let form = document.querySelector('#form');
+      // let body = document.querySelector('body');
+      // but.addEventListener('click', () => {
+      //    console.log(userName.value);
+      //    span.innerHTML = userName.value;
+      //    but.style.background = 'red';
+      //    userName.setAttribute('disabled', 'disabled');
+      //    if (young.checked) {
+      //       form.style.display = 'none';
+      //       body.style.background = 'black';
+      //       console.log(young.value);
+      //    } else {
+      //       form.style.display = 'none';
+      //       body.style.background = 'red';
+      //       body.innerHTML = 'Ты врёшь, иди спать! Подонок!';
+      //       console.log(old.value);
+      //    }
+      // });
+
+      // Если переменная a больше нуля и меньше 5-ти, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта
+      // при a, равном 5, 0, -3, 2.
+
+      // Если переменная a равна нулю или равна двум, то прибавьте к ней 7, иначе поделите ее на 10. Выведите новое значение
+      // переменной на экран. Проверьте работу скрипта при a, равном 5, 0, -3, 2.
+      // let a = parseInt(Math.random() * 7);
+      // (a==0 || a==2) ? console.log(a +'+ 7' + ' = ' + (a + 7)): console.log(a + '/ 10' + '=' + (a / 10));
+
+      // Если переменная a равна или меньше 1, а переменная b больше или равна 3, то выведите сумму этих переменных, иначе
+      // выведите их разность (результат вычитания). Проверьте работу скрипта при a и b, равном 1 и 3, 0 и 6, 3 и 5.
+      // let a = parseInt(Math.random() * 7);
+      // let b = parseInt(Math.random() * 7);  
+      // if (a <= 1 && b >= 3 ) {
+      //    console.log(a + b + ' ='+  a + '+' + b + ' - sum');
+      // } else {
+      //    console.log(a - b + ' = '+ a + ' - ' + b + ' -diff');
+      // }
+
+      // Если переменная a больше 2-х и меньше 11-ти, или переменная b больше или равна 6-ти и меньше 14-ти, то выведите
+      // 'Верно', в противном случае выведите 'Неверно'.
+      // let a = parseInt(Math.random() * 20);
+      // let b = parseInt(Math.random() * 25);    
+      // if (a > 2 && a < 11 || b >= 6 && b < 14) {
+      //    console.log(a + ',' + b + ' - верно');
+      // } else {
+      //    console.log(a + ',' + b + ' - неверно');
+      // }
+
+      // В этом задании вам нужно вписать в указанное место код, который будет присваивать переменной "х" значение суммы переменных "a" и "b" - в случае если  a < b, разность "a" и "b" - в случае если  a > b, и их произведение  в остальных случаях.
+      // let a = parseInt(Math.random() * 101);
+      // let b = parseInt(Math.random() * 101);
+      // let x;
+      // if (a < b) {
+      //    x = a + b;
+      //    console.log(a + '+' + b + '=' + x);
+      // } else if (a > b) {
+      //    x = a - b;
+      //    console.log(a + '-' + b + '=' + x);
+      // }else {
+      //    x = a * b;
+      //    console.log(a + '*' + b + '=' + x);
+      // }
+
+      // В этом задании вам нужно вписать в указанное место код, который будет присваивать переменной "х" значение суммы переменных "a" и "b" в случае если  a > b или их произведение в остальных случаях.
+      // let a = parseInt(Math.random() * 101);
+      // let b = parseInt(Math.random() * 101);
+      // let x;
+      // if (a > b) {
+      //    x = a + b;
+      //    console.log(a + '+' + b + '=' + x);
+      // } else {
+      //    x = a * b;
+      //    console.log(a + '*' + b + '=' + x);
+      // }
+
+   // Если переменная test равна true, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при test,
+   // равном true, false. Напишите два варианта скрипта - с короткой записью и с длинной.
+   // let test = false;
+   // (test == true)?console.log('верно'):console.log('неверно');
+
+   // Если переменная test не равна true, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при test,
+   // равном true, false. Напишите два варианта скрипта - с короткой записью и с длинной.
+// let test = false;
+// if (test !=true) {
+//    console.log('верно');
+// } else {
+//    console.log('неверно');
+// }
+
+//  Если переменная a равна нулю, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a, равном 1, 0, -3.
+
+//  Если переменная a больше нуля, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a, равном 1, 0, -3.
+
+//  Если переменная a меньше нуля, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a, равном 1, 0, -3.
+
+//  Если переменная a больше или равна нулю, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a, равном 1, 0, -3.
+
+//  Если переменная a меньше или равна нулю, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a, равном 1, 0, -3.
+// let a = '0';
+// if (a<=0) {
+//    console.log(true);
+// }
+// else {
+//    console.log(false);
+// }
+
+//  Если переменная a не равна нулю, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a, равном 1, 0, -3.
+// let a = '0';
+// console.log(a);
+// if (a !== 0) {
+//    console.log(true);
+// } else {
+//    console.log(false);
+// }
+
+//  Если переменная a равна 'test', то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу 
+// скрипта при a, равном 'test', 'тест', 3.
+// let a = 'test';
+// if (a === 'test') {
+//    console.log(true);
+// } else {
+//    console.log(false);
+// }
+
+//  Если переменная a равна '1' и по значению и по типу, то выведите 'Верно', иначе выведите 'Неверно'. Проверьте работу скрипта при a,
+//  равном '1', 1, 3.
+// let a = '3';
+// if (a === '1') {
+//    console.log('true');
+// } else {
+//    console.log('false');
+// }
+
+      // Переменная lang может принимать 2 значения: 'ru' 'en'. Если она имеет значение 'ru', то в переменную arr запишем массив дней 
+      // недели на русском языке, а если имеет значение 'en' – то на английском. Решите задачу через 2 if, через switch-case и через 
+      // многомерный массив без ифов и switch.
+   //    let lang = document.querySelector('#lang');
+   //    let arr = [];
+   //    let butLang = document.querySelector('#butLang');
+   //    let ru = ['пн', 'вт', 'ср', 'чт'];
+   //    let en = ['mon', 'tue', 'wed', 'thu'];
+   //    butLang.addEventListener('click', () => {
+   //       console.log(lang.value);
+   //       if (lang.value == 'ru') {
+   //          arr.pop();
+   //          arr.push(ru);
+   //       } else if (lang.value == 'en') {
+   //          arr.pop();
+   //          arr.push(en);
+   //       } else {
+   //          console.log('err')
+   //       }
+   //       console.log(arr);
+   // })
+
+ // Задача. В переменной min лежит число от 0 до 59. Определите в какую четверть часа попадает это число (в первую, вторую, третью или четвертую)
+// let min = parseInt(Math.random() *60);
+// if (min<=15) {
+//    console.log(min + ' - 1/4');
+// } else if (min>15 && min<=30) {
+//    console.log(min + ' - 2/4');
+// } else if (min>30 && min<=45) {
+//    console.log(min + ' - 3/4');
+// } else {
+//    console.log(min + ' - 4/4')
+// }
+
+// Задача. Если переменная a равна 10, то выведите 'Верно', иначе выведите 'Неверно'.
+// let a=2;
+// if (a==10) {
+//    alert('true');
+// } else if (a<3) {
+//    alert('omg')
+// } 
+// else {
+//    alert('fals');
+// }
+
+//       let p3 = document.querySelector('.p-3');
+//       p3.addEventListener('click', () => alert('Хрящ,хрящ'));
+
+// var x = 0;
+// while(x<6) {
+//   x++;
+// }
+// document.write(x);
+
+      // Task 2
+      // let b2 = document.querySelector('.b-2');
+      // b2.addEventListener('click', () => alert('Ну и задачка №2'));
+
+      // Task-1
+      // let but = document.querySelector('.b-1');
+      // but.addEventListener('click', function () {
+      //    alert('Task #1');
+      // });
+
+// ololo
+      // let input = document.querySelector('#input');
+      // let be = document.querySelector('#text');
+      // let uh = document.getElementById("uh");
+      // function sleep() {
+      //    uh.innerHTML = 'Очень сильно хочу спать!';
+      //    be.style.color = 'red';
+      //    uh.style.background = 'purple';
+      //    console.log(input.value);
+      // }
+
+//  Задача 0
+      // let polsunok = document.querySelector('#polsunok');
+      // let polsunokValue = document.querySelector('#polsunokValue');
+      // polsunokValue.innerHTML = polsunok.value;
+      // console.log(polsunok.nodeValue);
+
+   </script>
+</body>
+
+</html>

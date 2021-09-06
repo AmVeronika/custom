@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <style>
+      .slider {
+         border-radius: 5px;
+         background: #E0E0E0;
+         background: linear-gradient(left top, #E0E0E0, #EEEEEE);
+         width: 310px;
+         height: 15px;
+         margin: 5px;
+      }
+
+      .thumb {
+         width: 10px;
+         height: 25px;
+         border-radius: 3px;
+         position: relative;
+         left: 10px;
+         top: -5px;
+         background: blue;
+         cursor: pointer;
+      }
+   </style>
+</head>
+
+<body>
+
+   <div id="slider" class="slider">
+      <div class="thumb"></div>
+   </div>
+
+   <script>
+      let thumb = slider.querySelector('.thumb');
+
+      thumb.onmousedown = function (event) {
+         event.preventDefault(); // предотвратить запуск выделения (действие браузера)
+
+         let shiftX = event.clientX - thumb.getBoundingClientRect().left;
+         // shiftY здесь не нужен, слайдер двигается только по горизонтали
+
+         document.addEventListener('mousemove', onMouseMove);
+         document.addEventListener('mouseup', onMouseUp);
+
+         function onMouseMove(event) {
+            let newLeft = event.clientX - shiftX - slider.getBoundingClientRect().left;
+
+            // курсор вышел из слайдера => оставить бегунок в его границах.
+            if (newLeft < 0) {
+               newLeft = 0;
+            }
+            let rightEdge = slider.offsetWidth - thumb.offsetWidth;
+            if (newLeft > rightEdge) {
+               newLeft = rightEdge;
+            }
+
+            thumb.style.left = newLeft + 'px';
+         }
+
+         function onMouseUp() {
+            document.removeEventListener('mouseup', onMouseUp);
+            document.removeEventListener('mousemove', onMouseMove);
+         }
+
+      };
+
+      thumb.ondragstart = function () {
+         return false;
+      };
+   </script>
+
+
+
+   <label class="checkbox-slider__label">
+      <input type="checkbox" class="checkbox-slider__input">
+      <span class="checkbox-slider__point"></span>
+   </label>
+
+   <style>
+      .checkbox-slider__label {
+         position: relative;
+         height: 20px;
+         border: 2px solid rgba(0, 0, 0, 0.4);
+         border-radius: 15px;
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+         background: #5b678a;
+         transition: 0.2s linear;
+      }
+
+      .checkbox-slider__point {
+         position: absolute;
+         left: 1px;
+         top: 1px;
+         width: 20px;
+         height: 20px;
+         border: 3px solid #fff;
+         border-radius: 100%;
+         background: #1de8e8;
+         transition: 0.2s linear;
+      }
+
+      .checkbox-slider__input {
+         width: 60px;
+         opacity: 0;
+      }
+
+      .checkbox-slider__input:checked+.checkbox-slider__point {
+         left: 39px;
+         border: 3px solid #f89898;
+         background: #f42222;
+      }
+   </style>
+
+</body>
+
+</html>
