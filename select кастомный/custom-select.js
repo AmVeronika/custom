@@ -1,9 +1,9 @@
-const CLASS_NAME_SELECT = 'select';
-const CLASS_NAME_ACTIVE = 'select_show';
-const CLASS_NAME_SELECTED = 'select__option_selected';
+const CLASS_NAME_SELECT = 'select'; //общий блок сортировки
+const CLASS_NAME_ACTIVE = 'select_show'; // класс для отображения выподающего меню
+const CLASS_NAME_SELECTED = 'select__option_selected'; // класс добавляется выбранному элементу
 const SELECTOR_ACTIVE = '.select_show';
-const SELECTOR_DATA = '[data-select]';
-const SELECTOR_DATA_TOGGLE = '[data-select="toggle"]';
+const SELECTOR_DATA = '[data-select]'; // атрибут определяет действие открытие меню или эллемент находится в выпадающем списке
+const SELECTOR_DATA_TOGGLE = '[data-select="toggle"]';//атрибута data-select="toggle" определяет открытие выпадающего списка
 const SELECTOR_OPTION_SELECTED = '.select__option_selected';
 
 // value – позволяет как получить выбранную опцию, так и установить её;
@@ -12,12 +12,6 @@ const SELECTOR_OPTION_SELECTED = '.select__option_selected';
 // hide() – скрывает dropdown меню;
 // toggle() – переключает видимость выпадающего меню;
 // dispose() - удаляет обработчики событий, связанных с этим селектом.
-
-
-
-
-
-
 
 class CustomSelect {
   constructor(target, params) {
@@ -32,7 +26,7 @@ class CustomSelect {
   }
   _onClick(e) {// Нажатие (открытие селекта)
     const target = e.target; // получение данных с отображаемого на данный момент элемента
-    const type = target.closest(SELECTOR_DATA).dataset.select; // Поиск ближайшего элемента с селектом data-select и получаем значение его data атрибута (data-select) (в итоге этотже элемент со значением togget(сделано, в случае нескольких селекторов на странице))
+    const type = target.closest(SELECTOR_DATA).dataset.select; // Поиск ближайшего элемента с селектом data-select и получаем значение его data атрибута (data-select) (в итоге этотже элемент со значением toggle(сделано, в случае нескольких селекторов на странице))
     switch (type) {
       case 'toggle':
         this.toggle();// переключает список с опциями
