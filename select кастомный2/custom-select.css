@@ -15,15 +15,19 @@ body {
    width: 100%;
    padding: 4px 10px 4px 8px;
    user-select: none;
-   justify-content: space-between;
+   justify-content: flex-start;
+   position: relative;
 }
 
 .select__toggle::after {
    content: "";
+   position: absolute;
+   top: 1px;
+   right: 6%;
    width: 16px;
-   height: 15px;
+   height: 22px;
    background: url(./img/select-arrow.svg) no-repeat;
-   background-size: 14px 7px;
+   background-size: 14px 15px;
    background-position: center 5px;
 }
 
@@ -59,27 +63,16 @@ body {
 .select__option {
    display: flex;
    align-items: center;
-   justify-content: space-between;
+   justify-content: flex-start;
    padding: 8px 20px;
 }
-li[data-value="priceDown"],
-.select__option[data-value="priceUp"] {
-   position: relative;
+.select__option-svg {
+   margin-left: 8px;
 }
-li[data-value="priceDown"]::after,
-.select__option[data-value="priceUp"]::after {
-   content: "";
-   position: absolute;
-   top: 13px;
-   right: 105px;
-   width: 10px;
-   height: 10px;
-   background-size: 10px;
-   background-image: url("./img/select-option-arrow.svg");
-}
-li[data-value="priceUp"]::after {
+li[data-value="priceUp"] svg {
    transform: rotate(180deg);
 }
+
 
 .select__option_selected {
    background: #e4f2e9;
@@ -89,4 +82,9 @@ li[data-value="priceUp"]::after {
    color: #41a664;
    cursor: pointer;
    transition: 0.2s background-color ease-in-out;
+}
+.select__option:hover .select__option-svg path {
+   
+     fill: #41a664;
+   
 }
