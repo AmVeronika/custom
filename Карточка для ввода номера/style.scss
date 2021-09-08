@@ -1,0 +1,355 @@
+/*Обнуление*/
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+*,
+*:before,
+*:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+:focus,
+:active {
+   outline: none;
+}
+a:focus,
+a:active {
+   outline: none;
+}
+nav,
+footer,
+header,
+aside {
+   display: block;
+}
+html,
+body {
+   width: 100%;
+   font-size: 100%;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   min-height: 100vh;
+   font-family: $ff-Regular;
+   font-size: 16px;
+}
+main {
+   flex-grow: 1;
+}
+input,
+button,
+textarea {
+   font-family: inherit;
+}
+input::-ms-clear {
+   display: none;
+}
+// Для iphone
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}
+// Конец
+// Убрать/невидимка стрелочку у input
+input::-webkit-calendar-picker-indicator {
+   opacity: 0;
+}
+// Конец
+
+button {
+   cursor: pointer;
+   background: transparent;
+}
+button::-moz-focus-inner {
+   padding: 0;
+   border: 0;
+}
+a,
+a:visited {
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: none;
+}
+ul li {
+   list-style: none;
+}
+img {
+   vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-size: inherit;
+   font-weight: 400;
+}
+
+// Скрываем стрелки в input[type="number"]
+/* Это для браузера Chrome: */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+/* Это для браузера Firefox: */
+input[type="number"] {
+   -moz-appearance: textfield;
+}
+input[type="number"]:hover,
+input[type="number"]:focus {
+   -moz-appearance: number-input;
+}
+/* Для других */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+/* END*/
+
+// Обводка у обязательных (required) полей ввода
+input,
+textarea {
+   outline: none;
+   &:focus:required:invalid {
+      border-color: #fc4747;
+   }
+   &:required:valid {
+      border-color: green;
+   }
+}
+
+/*--------------------*/
+
+.container {
+   margin: 0 auto;
+   padding: 0 20px;
+   max-width: 1200px;
+   &_hide {
+      overflow: hidden;
+   }
+}
+.container-1200 {
+   margin: 0 auto;
+   padding: 0 20px;
+   max-width: 1240px;
+   &_hide {
+      overflow: hidden;
+   }
+}
+.footer {
+   padding-top: 30px;
+   background: #d6d6d6;
+   &__top {
+      display: flex;
+      justify-content: space-between;
+   }
+   &__subscription {
+      width: 470px;
+      &-application {
+         max-width: 353px;
+         font-family: $ff-Medium;
+         font-size: 18px;
+         line-height: 24px;
+         padding: 12px;
+         background: #ffffff;
+         box-sizing: border-box;
+         border-radius: 10px;
+      }
+      &-form {
+         margin-bottom: 70px;
+      }
+   }
+   &__heading {
+      padding-bottom: 20px;
+      font-family: $ff-Medium;
+      font-size: 16px;
+      line-height: 22px;
+   }
+   &__input {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 422px;
+      border: 1px solid #41a664;
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+   }
+   &__email {
+      padding: 0 18px;
+      max-width: 240px;
+      font-family: $ff-Regular;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+      &::placeholder {
+         font-family: $ff-Regular;
+      }
+   }
+   &__button {
+      padding: 8px 20px;
+      font-size: 20px;
+      border-radius: 9px;
+   }
+   &__label {
+      display: flex;
+      margin-top: 7px;
+      &-checkbox {
+         background: none;
+      }
+      &-text {
+         font-family: $ff-Light;
+         font-size: 14px;
+         line-height: 17px;
+         margin-left: 23px;
+         cursor: pointer;
+         // запрет на копирование
+         -ms-user-select: none;
+         -moz-user-select: none;
+         -webkit-user-select: none;
+         user-select: none;
+      }
+   }
+   &__nav {
+      margin-top: -8px;
+      max-width: 375px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      &-list {
+         flex-basis: 50%;
+      }
+      &-link {
+         display: block;
+         font-family: $ff-Regular;
+         font-size: 18px;
+         line-height: 43px;
+         color: #000000;
+      }
+   }
+
+   &__contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      &-time {
+         font-family: $ff-Regular;
+         font-size: 16px;
+         line-height: 20px;
+         color: #000000;
+      }
+      &-phone,
+      &-mail {
+         display: flex;
+         align-items: center;
+         font-family: $ff-Regular;
+         font-size: 18px;
+         line-height: 22px;
+         color: #000000;
+      }
+      &-mail {
+         margin-bottom: 20px;
+         font-family: $ff-Medium;
+      }
+      &-padding {
+         padding-bottom: 12px;
+      }
+      &-social {
+         margin-bottom: 26px;
+         display: flex;
+      }
+      &-link {
+         margin-left: 4px;
+         display: inline-flex;
+      }
+      &-svg {
+         margin-right: 4px;
+         width: 20px;
+         height: 20px;
+      }
+      &-feedback {
+         max-width: 210px;
+         font-family: $ff-Medium;
+         font-size: 20px;
+         line-height: 24px;
+         padding: 12px 20px;
+         background: #ffffff;
+         box-sizing: border-box;
+         border-radius: 10px;
+      }
+   }
+   &__social {
+      &-svg {
+         width: 44px;
+         height: 44px;
+         path {
+            transition: $transition;
+         }
+      }
+   }
+   &__bottom {
+      padding-top: 16px;
+      padding-bottom: 10px;
+      line-height: 16px;
+      font-size: 14px;
+      text-align: center;
+   }
+}
+.label-focus__active {
+   border: 1px solid #000000;
+}
+
+// hover на ссылки (в шапке и подвале)
+.link-hover {
+   transition: $transition;
+   #link-hover__phone,
+   #link-hover__email {
+      transition: $transition;
+   }
+   &:hover {
+      color: $color-main-normal;
+      #link-hover__phone {
+         stroke: $color-main-normal;
+      }
+      #link-hover__email {
+         fill: $color-main-normal;
+      }
+   }
+   &-svg {
+      path,
+      line {
+         transition: all $transition;
+      }
+      &:hover {
+         path {
+            fill: $color-main-normal;
+         }
+         line {
+            stroke: #41a664;
+            stroke-width: 3px;
+         }
+      }
+   }
+}
+.active-nav__link {
+   color: $color-main-normal;
+   pointer-events: none;
+   cursor: default;
+   -ms-user-select: none;
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}

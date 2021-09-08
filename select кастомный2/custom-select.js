@@ -6,15 +6,6 @@ const SELECTOR_DATA = '[data-select]'; // атрибут определяет д
 const SELECTOR_DATA_TOGGLE = '[data-select="toggle"]';//атрибута data-select="toggle" определяет открытие выпадающего списка
 const SELECTOR_OPTION_SELECTED = '.select__option_selected';
 
-
-// value – позволяет как получить выбранную опцию, так и установить её;
-// selectedIndex – индекс выбранного элемента (нумерация начинается с 0);
-// show() – показывает выпадающий список с опциями;
-// hide() – скрывает dropdown меню;
-// toggle() – переключает видимость выпадающего меню;
-// dispose() - удаляет обработчики событий, связанных с этим селектом.
-
-
 let buttonToggle = document.querySelectorAll(SELECTOR_DATA);//все эллементы data-select
 let select = document.querySelector('.select');// общий див
 let selected;//выбранный элемент
@@ -64,6 +55,14 @@ function update(option) { // обновляет значения атрибут�
    elToggle.value = option.dataset['value'];
    elToggle.dataset.index = option.dataset['index'];
    // elToggle.dispatchEvent(new CustomEvent('select.change'));//CustomEvent имеет дополнительное свойство detail,  в котором можно указывать информацию для передачи в событие.
+   elToggle.innerHTML = '';
    elToggle.innerHTML = option.innerHTML; // отображение выбранного элемента в селекте 
    
 }
+document.addEventListener('click', (e) => { // для закрытия открытого селекта при клике вне его
+   if (!e.target.closest('.select')) {
+     document.querySelectorAll(SELECTOR_ACTIVE).forEach(select => {
+       select.classList.remove(CLASS_NAME_ACTIVE);
+     });
+   }
+ });
